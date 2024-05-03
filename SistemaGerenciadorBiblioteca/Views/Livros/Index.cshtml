@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Livros";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Lista de Livros</h1>
+    <a class="btn btn-success" role="button" style="float: left" asp-controller="Livros" asp-action="Create">Adicionar Livro</a>
+    <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Gênero Literário</th>
+                <th scope="col">Editora</th>
+                <th scope="col">Ano de Publicação</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contatos in Model)
+            {
+
+                <tr>
+                    <td>@livros.Id_livro</td>
+                    <td>@livros.Titulo</td>
+                    <td>@livros.Autor</td>
+                    <td>@livros.Genero</td>
+                    <td>@livros.Editora</td>
+                    <td>@livros.Ano</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <a href="Livros/Edit/@livros.Id_livro" class="btn btn-warning">Editar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
