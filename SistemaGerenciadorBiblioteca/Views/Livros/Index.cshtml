@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<SistemaGerenciadorBiblioteca.Models.LivrosModel>
+@{
     ViewData["Title"] = "Listagem de Livros";
 }
 
@@ -24,15 +25,15 @@
             {
 
                 <tr>
-                    <td>@livros.Id_livro</td>
-                    <td>@livros.Titulo</td>
-                    <td>@livros.Autor</td>
-                    <td>@livros.Genero</td>
-                    <td>@livros.Editora</td>
-                    <td>@livros.Ano</td>
+                    <td>@livro.Id_livro</td>
+                    <td>@livro.Titulo</td>
+                    <td>@livro.Autor</td>
+                    <td>@livro.Genero</td>
+                    <td>@livro.Editora</td>
+                    <td>@livro.Ano</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="Livros/Edit/@livros.Id_livro" class="btn btn-warning">Editar</a>
+                            <a href="Livros/Edit/@livro.Id_livro" class="btn btn-warning">Editar</a>
                         </div>
                     </td>
                 </tr>

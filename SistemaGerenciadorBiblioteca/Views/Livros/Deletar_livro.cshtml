@@ -1,5 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SistemaGerenciadorBiblioteca.Models.DeletarLivroViewModel
 @{
+    ViewData["Title"] = "Confirmação - Deletar Livro";
 }
+
+<div class="text-center">
+    <h3>Realmente deseja apagar <a href="C:\temp\Projetos\SistemaGerenciadorBiblioteca\SistemaGerenciadorBiblioteca\Views\Livros\Adicionar_livro.cshtml">C:\temp\Projetos\SistemaGerenciadorBiblioteca\SistemaGerenciadorBiblioteca\Views\Livros\Adicionar_livro.cshtml</a>o Livro: (Livro)?</h3>
+    <br />
+    <a class="btn btn-secondary" role="button" asp-controller="Livros" asp-action="Index">Cancelar</a>
+    <a class="btn btn-danger" role="button" asp-controller="Livros" asp-action="Apagar">Confirmar exclusão</a>
+</div>
+
