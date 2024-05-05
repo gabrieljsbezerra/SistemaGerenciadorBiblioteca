@@ -1,7 +1,10 @@
-﻿namespace SistemaGerenciadorBiblioteca.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SistemaGerenciadorBiblioteca.Models
 {
     public class LivrosModel
     {
+        [Key] 
         public int Id_livro { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
