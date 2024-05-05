@@ -16,7 +16,8 @@ namespace SistemaGerenciadorBiblioteca.Controllers
         //Getters - Apenas mostra as informações
         public IActionResult Index()
         {
-            return View();
+            List<LivrosModel> livros = _livrosRepositorio.BuscarCadastroLivro(); //Busca no banco de dados
+            return View(livros); //retorna para a view
         }
 
         public ActionResult Create()

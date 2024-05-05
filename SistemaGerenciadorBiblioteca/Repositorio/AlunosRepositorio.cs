@@ -11,6 +11,11 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         {
             _bancoContext = bancoContext;
         }
+        //Método que atualiza a view com tudo que está no banco de dados
+        public List<AlunosModel> BuscarCadastroAluno()
+        {
+            return _bancoContext.Alunos.ToList();
+        }
         //Método de Adicionar criado
         public AlunosModel Adicionar(AlunosModel alunos)
         {
@@ -19,5 +24,7 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return alunos;
         }
+
+
     }
 }

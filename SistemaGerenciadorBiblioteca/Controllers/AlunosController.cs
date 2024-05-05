@@ -13,7 +13,8 @@ namespace SistemaGerenciadorBiblioteca.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<AlunosModel> alunos = _alunosRepositorio.BuscarCadastroAluno(); //Busca no banco de dados
+            return View(alunos); //retorna para a view
         }
 
         public ActionResult Create()

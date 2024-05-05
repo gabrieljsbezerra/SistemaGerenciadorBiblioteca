@@ -21,19 +21,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var alunos in Model)
+            @foreach (var aluno in Model)
             {
                 <tr>
-                    <td>@alunos.Id_aluno</td>
-                    <td>@alunos.Rm</td>
-                    <td>@alunos.Nome_Aluno</td>
-                    <td>@alunos.Turma</td>
-                    <td>@alunos.Nome_Responsavel</td>
-                    <td>@alunos.Celular</td>
-                    <td>@alunos.Email</td>
+                    <td>@aluno.Id_aluno</td>
+                    <td>@aluno.Rm</td>
+                    <td>@aluno.Nome_Aluno</td>
+                    <td>@aluno.Turma</td>
+                    <td>@aluno.Nome_Responsavel</td>
+                    <td>@aluno.Celular</td>
+                    <td>@aluno.Email</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="Livros/Edit/@alunos.Id_aluno" class="btn btn-warning">Editar</a>
+                            <a href="Livros/Edit/@aluno.Id_aluno" class="btn btn-warning">Editar</a>
                         </div>
                     </td>
                 </tr>
