@@ -20,7 +20,7 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View(livros); //retorna para a view
         }
 
-        public ActionResult Create()
+        public ActionResult Adicionar_livro()
         {
             return View();
         }
