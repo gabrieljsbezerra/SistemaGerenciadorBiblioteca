@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaGerenciadorBiblioteca.Data;
+using SistemaGerenciadorBiblioteca.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("BancoContext")));
+builder.Services.AddScoped<ILivrosRepositorio, LivrosRepositorio>();
+builder.Services.AddScoped<IAlunosRepositorio, AlunosRepositorio>();
 
 var app = builder.Build();
 
