@@ -11,7 +11,7 @@ using SistemaGerenciadorBiblioteca.Data;
 namespace SistemaGerenciadorBiblioteca.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240505015922_NovoAjusteCriandoTabelaAlunosLivros")]
+    [Migration("20240505052155_NovoAjusteCriandoTabelaAlunosLivros")]
     partial class NovoAjusteCriandoTabelaAlunosLivros
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,9 @@ namespace SistemaGerenciadorBiblioteca.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_aluno"), 1L, 1);
 
-                    b.Property<int>("Celular")
-                        .HasColumnType("int");
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -70,10 +71,6 @@ namespace SistemaGerenciadorBiblioteca.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Autor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

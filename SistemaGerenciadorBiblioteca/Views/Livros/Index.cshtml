@@ -25,7 +25,7 @@
             {
 
                 <tr>
-                    <td>@livro.Id_livro</td>
+                    <td scope="row">@livro.Id_livro</td>
                     <td>@livro.Titulo</td>
                     <td>@livro.Autor</td>
                     <td>@livro.Genero</td>
@@ -33,7 +33,8 @@
                     <td>@livro.Ano</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="Livros/Edit/@livro.Id_livro" class="btn btn-warning">Editar</a>
+                            <a role="button" class="btn btn-warning" asp-router-id="@livro.Id_livro" asp-controller="Livros" asp-action="Editar_livro">Editar</a>
+                            <a role="button" class="btn btn-danger" asp-router-id="@livro.Id_livro" asp-controller="Livros" asp-action="Deletar_livro">Deletar</a>
                         </div>
                     </td>
                 </tr>

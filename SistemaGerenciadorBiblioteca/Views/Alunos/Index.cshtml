@@ -5,7 +5,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Lista de Alunos</h1>
-    <a class="btn btn-success" role="button" style="float: left" asp-controller="Alunos" asp-action="Create">Adicionar Aluno</a>
+    <a class="btn btn-success" role="button" style="float: left" asp-controller="Alunos" asp-action="Adicionar_aluno">Adicionar Aluno</a>
     <br />
     <table class="table table-striped">
         <thead>
@@ -24,7 +24,7 @@
             @foreach (var aluno in Model)
             {
                 <tr>
-                    <td>@aluno.Id_aluno</td>
+                    <th scope ="row">@aluno.Id_aluno</th>
                     <td>@aluno.Rm</td>
                     <td>@aluno.Nome_Aluno</td>
                     <td>@aluno.Turma</td>
@@ -33,7 +33,8 @@
                     <td>@aluno.Email</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="Livros/Edit/@aluno.Id_aluno" class="btn btn-warning">Editar</a>
+                            <a role="button" class="btn btn-warning" asp-router-id="@aluno.Id_aluno" asp-controller="Alunos" asp-action="Editar_alunos">Editar</a>
+                            <a role="button" class="btn btn-danger" asp-router-id="@aluno.Id_aluno" asp-controller="Alunos" asp-action="Deletar_alunos">Deletar</a>
                         </div>
                     </td>
                 </tr>

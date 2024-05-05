@@ -29,8 +29,9 @@ namespace SistemaGerenciadorBiblioteca.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_aluno"), 1L, 1);
 
-                    b.Property<int>("Celular")
-                        .HasColumnType("int");
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -68,10 +69,6 @@ namespace SistemaGerenciadorBiblioteca.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Autor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

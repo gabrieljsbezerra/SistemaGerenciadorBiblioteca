@@ -18,7 +18,7 @@ namespace SistemaGerenciadorBiblioteca.Migrations
                     Nome_Aluno = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Turma = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nome_Responsavel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Celular = table.Column<int>(type: "int", nullable: false),
+                    Celular = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

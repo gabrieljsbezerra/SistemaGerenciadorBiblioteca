@@ -10,7 +10,7 @@ namespace SistemaGerenciadorBiblioteca.Models
         public string Nome_Aluno { get; set; }
         public string Turma { get; set; }
         public string Nome_Responsavel { get; set; }
-        public int Celular { get; set; }
+        public string Celular { get; set; }
         public string Email { get; set; }
 
     }

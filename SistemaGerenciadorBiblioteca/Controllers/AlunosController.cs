@@ -17,17 +17,17 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View(alunos); //retorna para a view
         }
 
-        public ActionResult Create()
+        public ActionResult Adicionar_aluno()
         {
             return View();
         }
 
-        public ActionResult Edit()
+        public ActionResult Editar_aluno()
         {
             return View();
         }
 
-        public ActionResult Delete()
+        public ActionResult Deletar_aluno()
         {
             return View();
         }

@@ -25,12 +25,12 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View();
         }
 
-        public ActionResult Edit()
+        public ActionResult Editar_livro()
         {
             return View();
         }
 
-        public ActionResult Delete()
+        public ActionResult Deletar_livro()
         {
             return View();
         }
