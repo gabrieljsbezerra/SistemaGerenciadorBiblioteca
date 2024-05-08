@@ -1,4 +1,4 @@
-﻿@model SistemaGerenciadorBiblioteca.Models.EditarAlunoViewModel
+﻿@model AlunosModel
 @{
     ViewData["Title"] = "Editar Cadastro Aluno";
 }
@@ -9,42 +9,42 @@
 
 </div>
 
-<form method="post" action="Edit">
-    <div class="mb-3">
+<form asp-controller="Alunos" asp-action="Editar_aluno" method="post">
+    <div class="form-group">
         <label for="id" class="form-label">ID Sistema</label>
-        <input type="text" class="form-control" id="id" aria-describedby="descricaoidaluno" asp-for="Id_aluno" readonly>
+        <input type="text" asp-for="Id_aluno" class="form-control" id="id" aria-describedby="descricaoidaluno" readonly>
         <div id="descricaoidaluno" class="form-text">Identificador único do Aluno</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="rm" class="form-label">Registro de Matrícula (RM)</label>
-        <input type="number" class="form-control" id="rm" placeholder="Exemplo: 12345" aria-describedby="descricaorm" asp-for="Rm">
+        <input type="number" class="form-control" id="rm" aria-describedby="descricaorm" asp-for="Rm">
         <div id="descricaorm" class="form-text">Digite o RM do Aluno</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="nomealuno" class="form-label">Nome do Aluno</label>
-        <input type="text" class="form-control" id="nomealuno" placeholder="Exemplo: Gabriel João" aria-describedby="descricaonomealuno" asp-for="Nome_Aluno">
+        <input type="text" class="form-control" id="nomealuno" aria-describedby="descricaonomealuno" asp-for="Nome_Aluno">
         <div id="descricaonomealuno" class="form-text">Digite o nome do Aluno</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="turma" class="form-label">Turma</label>
-        <input type="text" class="form-control" id="genero" placeholder="Exemplo: 1°D" aria-describedby="descricaoturma" asp-for="Turma">
+        <input type="text" class="form-control" id="genero" aria-describedby="descricaoturma" asp-for="Turma">
         <div id="descricaoturma" class="form-text">Digite a respectiva Turma pertencente</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="nomeresponsavel" class="form-label">Nome do Responsável</label>
-        <input type="text" class="form-control" id="nomeresponsavel" placeholder="Exemplo: João / Maria" aria-describedby="descricaonomeresponsavel" asp-for="Nome_Responsavel">
+        <input type="text" class="form-control" id="nomeresponsavel" aria-describedby="descricaonomeresponsavel" asp-for="Nome_Responsavel">
         <div id="descricaonomeresponsavel" class="form-text">Digite o nome do Responsável pelo Aluno</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="celular" class="form-label">Celular/Telefone Responsável</label>
-        <input type="tel" class="form-control" id="celular" placeholder="Exemplo: 11 91234-4321" aria-describedby="descricaocelular" asp-for="Celular">
+        <input type="tel" class="form-control" id="celular" aria-describedby="descricaocelular" asp-for="Celular">
         <div id="descricaocelular" class="form-text">Digite o número celular</div>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="email" class="form-label">E-mail Responsável</label>
-        <input type="email" class="form-control" id="email" placeholder="Exemplo: joaomaria@hotmail.com" aria-describedby="descricaoemail" asp-for="Email">
+        <input type="email" class="form-control" id="email" aria-describedby="descricaoemail" asp-for="Email">
         <div id="descricaoemail" class="form-text">Digite o e-mail do Responsável</div>
     </div>
     <a class="btn btn-secondary" role="button" asp-controller="Alunos" asp-action="Index">Voltar</a>
-    <button type="submit" class="btn btn-warning" asp-controller="Alunos" asp-action="Edit">Alterar</button>
+    <button type="submit" class="btn btn-warning">Alterar</button>
 </form>

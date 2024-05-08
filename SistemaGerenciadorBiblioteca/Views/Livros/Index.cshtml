@@ -33,7 +33,7 @@
                     <td>@livro.Ano</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a role="button" class="btn btn-warning" asp-router-id="@livro.Id_livro" asp-controller="Livros" asp-action="Editar_livro">Editar</a>
+                            <a role="button" class="btn btn-warning" href="Livros/Editar_livro/@livro.Id_livro">Editar</a>
                             <a role="button" class="btn btn-danger" asp-router-id="@livro.Id_livro" asp-controller="Livros" asp-action="Deletar_livro">Deletar</a>
                         </div>
                     </td>

@@ -25,9 +25,10 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View();
         }
 
-        public ActionResult Editar_livro()
+        public ActionResult Editar_livro(int id)
         {
-            return View();
+            LivrosModel info = _livrosRepositorio.ListarporIdLivro(id);
+            return View(info);
         }
 
         public ActionResult Deletar_livro()

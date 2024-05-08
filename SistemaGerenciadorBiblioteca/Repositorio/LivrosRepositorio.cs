@@ -11,6 +11,10 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         {
             _bancoContext = bancoContext;
         }
+        public LivrosModel ListarporIdLivro(int id)
+        {
+            return _bancoContext.Livros.FirstOrDefault(x => x.Id_livro == id);
+        }
         //Método que atualiza a view com tudo que está no banco de dados
         public List<LivrosModel> BuscarCadastroLivro()
         {
@@ -24,5 +28,7 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return livros;
         }
+
+
     }
 }

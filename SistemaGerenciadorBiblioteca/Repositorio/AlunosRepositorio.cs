@@ -9,7 +9,11 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         private readonly BancoContext _bancoContext; //variável privada
         public AlunosRepositorio(BancoContext bancoContext)
         {
-            _bancoContext = bancoContext;
+            this._bancoContext = bancoContext;
+        }
+        public AlunosModel ListarIdAluno(int id)
+        {
+            return _bancoContext.Alunos.FirstOrDefault(x => x.Id_aluno == id);
         }
         //Método que atualiza a view com tudo que está no banco de dados
         public List<AlunosModel> BuscarCadastroAluno()
@@ -24,7 +28,5 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return alunos;
         }
-
-
     }
 }

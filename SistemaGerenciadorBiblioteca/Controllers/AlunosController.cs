@@ -22,9 +22,10 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View();
         }
 
-        public ActionResult Editar_aluno()
+        public ActionResult Editar_aluno(int id)
         {
-            return View();
+            AlunosModel info = _alunosRepositorio.ListarIdAluno(id);
+            return View(info);
         }
 
         public ActionResult Deletar_aluno()
