@@ -8,5 +8,6 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         List<LivrosModel> BuscarCadastroLivro();
         LivrosModel Adicionar(LivrosModel livros);
         LivrosModel Atualizar(LivrosModel livros);
+        bool Deletar(int id);
     }
 }

@@ -45,5 +45,16 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return livrosBD;
         }
+
+        public bool Deletar(int id)
+        {
+            LivrosModel livrosBD = ListarporIdLivro(id);
+
+            if (livrosBD == null) throw new Exception("Erro ao Deletar no Banco de Dados!! Null error.");
+
+            _bancoContext.Livros.Remove(livrosBD);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }

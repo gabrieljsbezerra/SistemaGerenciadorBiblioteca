@@ -7,6 +7,6 @@
     <h3>Realmente deseja apagar o cadastro do Aluno: @Model.Nome_Aluno?</h3>
     <br />
     <a class="btn btn-secondary" role="button" asp-controller="Alunos" asp-action="Index">Cancelar</a>
-    <a class="btn btn-danger" role="button" asp-controller="Alunos" asp-action="Delete">Confirmar exclusão</a>
+    <a class="btn btn-danger" role="button" asp-controller="Alunos" asp-action="Delete" asp-route-id="@Model.Id_aluno">Confirmar exclusão</a>
 </div>
 

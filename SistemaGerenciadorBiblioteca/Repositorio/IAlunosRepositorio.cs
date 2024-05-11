@@ -8,5 +8,6 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         List<AlunosModel> BuscarCadastroAluno();
         AlunosModel Adicionar(AlunosModel alunos);
         AlunosModel Atualizar(AlunosModel alunos);
+        bool Deletar(int id);
     }
 }

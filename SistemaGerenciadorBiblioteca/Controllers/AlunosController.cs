@@ -33,7 +33,11 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             AlunosModel info = _alunosRepositorio.ListarIdAluno(id);
             return View(info);
         }
-
+        public ActionResult Delete(int id)
+        {
+            _alunosRepositorio.Deletar(id);
+            return RedirectToAction("Index");
+        }
         //Posters - Responsável por armazenar e gravar as informações
         public ActionResult Create(AlunosModel alunos)
         {

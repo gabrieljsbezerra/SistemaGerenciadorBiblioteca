@@ -47,5 +47,16 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
             return alunoBD;
             
         }
+
+        public bool Deletar(int id)
+        {
+            AlunosModel alunoBD = ListarIdAluno(id);
+
+            if (alunoBD == null) throw new Exception("Erro ao Deletar no Banco de Dados!! Null error.");
+            
+            _bancoContext.Alunos.Remove(alunoBD);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }
