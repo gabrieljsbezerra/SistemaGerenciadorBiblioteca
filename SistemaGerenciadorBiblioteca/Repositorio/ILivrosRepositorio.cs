@@ -7,5 +7,6 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         LivrosModel ListarporIdLivro(int id);
         List<LivrosModel> BuscarCadastroLivro();
         LivrosModel Adicionar(LivrosModel livros);
+        LivrosModel Atualizar(LivrosModel livros);
     }
 }

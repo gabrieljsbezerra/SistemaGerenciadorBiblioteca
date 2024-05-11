@@ -28,15 +28,21 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View(info);
         }
 
-        public ActionResult Deletar_aluno()
+        public ActionResult Deletar_aluno(int id)
         {
-            return View();
+            AlunosModel info = _alunosRepositorio.ListarIdAluno(id);
+            return View(info);
         }
 
         //Posters - Responsável por armazenar e gravar as informações
         public ActionResult Create(AlunosModel alunos)
         {
             _alunosRepositorio.Adicionar(alunos);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(AlunosModel alunos)
+        {
+            _alunosRepositorio.Atualizar(alunos);
             return RedirectToAction("Index");
         }
     }

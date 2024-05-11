@@ -28,5 +28,24 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return alunos;
         }
+        public AlunosModel Atualizar(AlunosModel alunos)
+        {
+            AlunosModel alunoBD = ListarIdAluno(alunos.Id_aluno);
+
+            if (alunoBD == null) throw new Exception("Erro ao salvar as alterações no Banco de Dados!! Null error.");
+
+            alunoBD.Rm = alunos.Rm;
+            alunoBD.Nome_Aluno = alunos.Nome_Aluno;
+            alunoBD.Turma = alunos.Turma;
+            alunoBD.Nome_Responsavel = alunos.Nome_Responsavel;
+            alunoBD.Celular = alunos.Celular;
+            alunoBD.Email = alunos.Email;
+
+            _bancoContext.Alunos.Update(alunoBD);
+            _bancoContext.SaveChanges();
+            
+            return alunoBD;
+            
+        }
     }
 }

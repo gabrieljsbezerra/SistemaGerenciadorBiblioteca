@@ -28,7 +28,22 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             return livros;
         }
+        public LivrosModel Atualizar(LivrosModel livros)
+        {
+            LivrosModel livrosBD = ListarporIdLivro(livros.Id_livro);
 
+            if (livrosBD == null) throw new Exception("Erro ao salvar as alterações no Banco de Dados!! Null error.");
 
+            livrosBD.Titulo = livros.Titulo;
+            livrosBD.Autor = livros.Autor;
+            livrosBD.Genero = livros.Genero;
+            livrosBD.Editora = livros.Editora;
+            livrosBD.Ano = livros.Ano;
+
+            _bancoContext.Livros.Update(livrosBD);
+            _bancoContext.SaveChanges();
+
+            return livrosBD;
+        }
     }
 }

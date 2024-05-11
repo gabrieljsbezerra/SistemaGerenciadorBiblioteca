@@ -31,9 +31,10 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return View(info);
         }
 
-        public ActionResult Deletar_livro()
+        public ActionResult Deletar_livro(int id)
         {
-            return View();
+            LivrosModel info = _livrosRepositorio.ListarporIdLivro(id);
+            return View(info);
         }
 
         //Posters - Responsável por armazenar e gravar as informações
@@ -41,6 +42,11 @@ namespace SistemaGerenciadorBiblioteca.Controllers
         public ActionResult Create(LivrosModel livros)
         {
             _livrosRepositorio.Adicionar(livros);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(LivrosModel livros)
+        {
+            _livrosRepositorio.Atualizar(livros);
             return RedirectToAction("Index");
         }
     }

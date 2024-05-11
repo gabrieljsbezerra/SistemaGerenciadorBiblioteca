@@ -1,12 +1,12 @@
-﻿@model SistemaGerenciadorBiblioteca.Models.DeletarAlunoViewModel
+﻿@model AlunosModel
 @{
     ViewData["Title"] = "Confirmação - Deletar Aluno";
 }
 
 <div class="text-center">
-    <h3>Realmente deseja apagar <a href="C:\temp\Projetos\SistemaGerenciadorBiblioteca\SistemaGerenciadorBiblioteca\Views\Alunos\Adicionar_aluno.cshtml">C:\temp\Projetos\SistemaGerenciadorBiblioteca\SistemaGerenciadorBiblioteca\Views\Alunos\Adicionar_aluno.cshtml</a>o Cadastro do Aluno: (Aluno)?</h3>
+    <h3>Realmente deseja apagar o cadastro do Aluno: @Model.Nome_Aluno?</h3>
     <br />
     <a class="btn btn-secondary" role="button" asp-controller="Alunos" asp-action="Index">Cancelar</a>
-    <a class="btn btn-danger" role="button" asp-controller="Alunos" asp-action="Apagar">Confirmar exclusão</a>
+    <a class="btn btn-danger" role="button" asp-controller="Alunos" asp-action="Delete">Confirmar exclusão</a>
 </div>
 
