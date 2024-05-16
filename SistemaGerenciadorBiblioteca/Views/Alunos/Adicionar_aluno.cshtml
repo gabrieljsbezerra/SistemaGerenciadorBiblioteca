@@ -1,4 +1,4 @@
-﻿@model SistemaGerenciadorBiblioteca.Models.AdicionarAlunoViewModel
+﻿@model AlunosModel
 @{
     ViewData["Title"] = "Cadastrar Aluno";
 }
@@ -9,35 +9,41 @@
 
 </div>
 
-<form asp-controller="Alunos" asp-action="Create" method="post">
+<form asp-controller="Alunos" asp-action="Adicionar_aluno" method="post">
     <div class="mb-3">
         <label for="rm" class="form-label">Registro de Matrícula (RM)</label>
         <input type="number" class="form-control" id="rm" placeholder="Exemplo: 12345" aria-describedby="descricaorm" asp-for="Rm">
+        @Html.ValidationMessageFor(x => x.Rm)
         <div id="descricaorm" class="form-text">Digite o RM do Aluno</div>
     </div>
     <div class="mb-3">
         <label for="nomealuno" class="form-label">Nome do Aluno</label>
         <input type="text" class="form-control" id="nomealuno" placeholder="Exemplo: Gabriel João" aria-describedby="descricaonomealuno" asp-for="Nome_Aluno">
+        @Html.ValidationMessageFor(x => x.Nome_Aluno)
         <div id="descricaonomealuno" class="form-text">Digite o nome do Aluno</div>
     </div>
     <div class="mb-3">
         <label for="turma" class="form-label">Turma</label>
         <input type="text" class="form-control" id="genero" placeholder="Exemplo: 1°D" aria-describedby="descricaoturma" asp-for="Turma">
+        @Html.ValidationMessageFor(x => x.Turma)
         <div id="descricaoturma" class="form-text">Digite a respectiva Turma pertencente</div>
     </div>
     <div class="mb-3">
         <label for="nomeresponsavel" class="form-label">Nome do Responsável</label>
         <input type="text" class="form-control" id="nomeresponsavel" placeholder="Exemplo: João / Maria" aria-describedby="descricaonomeresponsavel" asp-for="Nome_Responsavel">
+        @Html.ValidationMessageFor(x => x.Nome_Responsavel)
         <div id="descricaonomeresponsavel" class="form-text">Digite o nome do Responsável pelo Aluno</div>
     </div>
     <div class="mb-3">
         <label for="celular" class="form-label">Celular/Telefone Responsável</label>
         <input type="tel" class="form-control" id="celular" placeholder="Exemplo: 11 91234-4321" aria-describedby="descricaocelular" asp-for="Celular">
+        @Html.ValidationMessageFor(x => x.Celular)
         <div id="descricaocelular" class="form-text">Digite o número celular</div>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">E-mail Responsável</label>
         <input type="email" class="form-control" id="email" placeholder="Exemplo: joaomaria@hotmail.com" aria-describedby="descricaoemail" asp-for="Email">
+        @Html.ValidationMessageFor(x => x.Email)
         <div id="descricaoemail" class="form-text">Digite o e-mail do Responsável</div>
     </div>
     <a class="btn btn-secondary" role="button" asp-controller="Alunos" asp-action="Index">Voltar</a>

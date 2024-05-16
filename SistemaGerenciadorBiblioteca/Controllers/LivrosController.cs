@@ -44,15 +44,31 @@ namespace SistemaGerenciadorBiblioteca.Controllers
 
         //Posters - Responsável por armazenar e gravar as informações
         [HttpPost]
-        public ActionResult Create(LivrosModel livros)
+        public ActionResult Adicionar_livro(LivrosModel livros)
         {
-            _livrosRepositorio.Adicionar(livros);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _livrosRepositorio.Adicionar(livros);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(livros);
+            }
         }
-        public ActionResult Edit(LivrosModel livros)
+        [HttpPost]
+        public ActionResult Editar_livro(LivrosModel livros)
         {
-            _livrosRepositorio.Atualizar(livros);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _livrosRepositorio.Atualizar(livros);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(livros);
+            }
+
         }
     }
 }

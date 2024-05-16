@@ -39,15 +39,28 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             return RedirectToAction("Index");
         }
         //Posters - Responsável por armazenar e gravar as informações
-        public ActionResult Create(AlunosModel alunos)
+        [HttpPost]
+        public ActionResult Adicionar_aluno(AlunosModel alunos)
         {
-            _alunosRepositorio.Adicionar(alunos);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _alunosRepositorio.Adicionar(alunos);
+                return RedirectToAction("Index");
+            }
+            else { return View(alunos); }
         }
-        public ActionResult Edit(AlunosModel alunos)
+        [HttpPost]
+        public ActionResult Editar_aluno(AlunosModel alunos)
         {
-            _alunosRepositorio.Atualizar(alunos);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _alunosRepositorio.Atualizar(alunos);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(alunos);
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
 
 </div>
 
-<form asp-controller="Alunos" asp-action="Edit" method="post">
+<form asp-controller="Alunos" asp-action="Editar_aluno" method="post">
     <div class="form-group">
         <label for="id" class="form-label">ID Sistema</label>
         <input type="text" asp-for="Id_aluno" class="form-control" id="id" aria-describedby="descricaoidaluno" readonly>
@@ -18,31 +18,37 @@
     <div class="form-group">
         <label for="rm" class="form-label">Registro de Matrícula (RM)</label>
         <input type="number" class="form-control" id="rm" aria-describedby="descricaorm" asp-for="Rm">
+        @Html.ValidationMessageFor(x => x.Rm)
         <div id="descricaorm" class="form-text">Digite o RM do Aluno</div>
     </div>
     <div class="form-group">
         <label for="nomealuno" class="form-label">Nome do Aluno</label>
         <input type="text" class="form-control" id="nomealuno" aria-describedby="descricaonomealuno" asp-for="Nome_Aluno">
+        @Html.ValidationMessageFor(x => x.Nome_Aluno)
         <div id="descricaonomealuno" class="form-text">Digite o nome do Aluno</div>
     </div>
     <div class="form-group">
         <label for="turma" class="form-label">Turma</label>
         <input type="text" class="form-control" id="genero" aria-describedby="descricaoturma" asp-for="Turma">
+        @Html.ValidationMessageFor(x => x.Turma)
         <div id="descricaoturma" class="form-text">Digite a respectiva Turma pertencente</div>
     </div>
     <div class="form-group">
         <label for="nomeresponsavel" class="form-label">Nome do Responsável</label>
         <input type="text" class="form-control" id="nomeresponsavel" aria-describedby="descricaonomeresponsavel" asp-for="Nome_Responsavel">
+        @Html.ValidationMessageFor(x => x.Nome_Responsavel)
         <div id="descricaonomeresponsavel" class="form-text">Digite o nome do Responsável pelo Aluno</div>
     </div>
     <div class="form-group">
         <label for="celular" class="form-label">Celular/Telefone Responsável</label>
         <input type="tel" class="form-control" id="celular" aria-describedby="descricaocelular" asp-for="Celular">
+        @Html.ValidationMessageFor(x => x.Celular)
         <div id="descricaocelular" class="form-text">Digite o número celular</div>
     </div>
     <div class="form-group">
         <label for="email" class="form-label">E-mail Responsável</label>
         <input type="email" class="form-control" id="email" aria-describedby="descricaoemail" asp-for="Email">
+        @Html.ValidationMessageFor(x => x.Email)
         <div id="descricaoemail" class="form-text">Digite o e-mail do Responsável</div>
     </div>
     <a class="btn btn-secondary" role="button" asp-controller="Alunos" asp-action="Index">Voltar</a>

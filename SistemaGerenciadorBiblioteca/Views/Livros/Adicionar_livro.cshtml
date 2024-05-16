@@ -1,4 +1,4 @@
-﻿@model SistemaGerenciadorBiblioteca.Models.AdicionarLivroViewModel
+﻿@model LivrosModel
 @{
     ViewData["Title"] = "Cadastrar Livro";
 }
@@ -10,30 +10,36 @@
 
 </div>
 
-<form method="post" action="Create">
+<form asp-controller="Livros" asp-action="Adicionar_livro" method="post">
     <div class="mb-3">
         <label for="titulo" class="form-label">Título do Livro</label>
         <input type="text" class="form-control" id="titulo" placeholder="Exemplo: Harry Potter" aria-describedby="descricaotitulo" asp-for="Titulo">
+        @Html.ValidationMessageFor(x => x.Titulo)
         <div id="descricaotitulo" class="form-text">Digite o Título do Livro</div>
+
     </div>
     <div class="mb-3">
         <label for="autor" class="form-label">Nome do Autor</label>
         <input type="text" class="form-control" id="autor" placeholder="Exemplo: J. K. Rowling" aria-describedby="descricaoautor" asp-for="Autor">
+        @Html.ValidationMessageFor(x => x.Autor)
         <div id="descricaoautor" class="form-text">Digite o nome do Autor</div>
     </div>
     <div class="mb-3">
         <label for="genero" class="form-label">Gênero Literário</label>
         <input type="text" class="form-control" id="genero" placeholder="Exemplo: Fantasia" aria-describedby="descricaogenero" asp-for="Genero">
+        @Html.ValidationMessageFor(x => x.Genero)
         <div id="descricaogenero" class="form-text">Digite o Genêro Literário</div>
     </div>
     <div class="mb-3">
         <label for="editora" class="form-label">Editora</label>
         <input type="text" class="form-control" id="editora" placeholder="Exemplo: Editora Rocco" aria-describedby="descricaoeditora" asp-for="Editora">
+        @Html.ValidationMessageFor(x => x.Editora)
         <div id="descricaoeditora" class="form-text">Digite a Editora</div>
     </div>
     <div class="mb-3">
         <label for="ano" class="form-label">Ano de Publicação</label>
         <input type="number" class="form-control" id="ano" placeholder="Exemplo: 1997" aria-describedby="descricaoeditora" asp-for="Ano">
+        @Html.ValidationMessageFor(x => x.Ano)
         <div id="descricaoano" class="form-text">Digite o ano de lançamento</div>
     </div>
     <a class="btn btn-secondary" role="button" asp-controller="Livros" asp-action="Index">Voltar</a>
