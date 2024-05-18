@@ -9,7 +9,7 @@ Este é um projeto de sistema de gerenciamento de biblioteca desenvolvido em C# 
 - Tratamento de erros
   - Criada estrutura de tratamento de erros, com mensagens de erros, de sucesso, preenchimento em caso de campos vazios e pequena descrição vermelha abaixo do campo vazio.
 - Tabelas
-  - Criada funcionalidade de paginação das tabelas e pesquisa, para cada listagem de tabelas.
+  - Criada funcionalidade de paginação das tabelas, ordenação por coluna e pesquisa para cada listagem de tabelas.
 # Tecnologias Utilizadas
 - C# ASP .NET MVC (Web)
 - HTML e CSS
