@@ -38,36 +38,69 @@ namespace SistemaGerenciadorBiblioteca.Controllers
         }
         public ActionResult Delete(int id)
         {
-            _livrosRepositorio.Deletar(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _livrosRepositorio.Deletar(id);
+                TempData["MensagemDeleteSucesso"] = "Cadastro do livro deletado com sucesso!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemDeleteErro"] = $"Ops, não foi possível cadastrar o Livro. Tente novamente! Detalhe do Erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
 
         //Posters - Responsável por armazenar e gravar as informações
         [HttpPost]
         public ActionResult Adicionar_livro(LivrosModel livros)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _livrosRepositorio.Adicionar(livros);
+                if (ModelState.IsValid)
+                {
+                    _livrosRepositorio.Adicionar(livros);
+                    TempData["MensagemSucesso"] = "Livro cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["MensagemPreencha"] = "Preencha os campos faltantes!!";
+                    return View(livros);
+                }
+
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não foi possível cadastrar o Livro. Tente novamente! Detalhe do Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View(livros);
-            }
+
         }
         [HttpPost]
         public ActionResult Editar_livro(LivrosModel livros)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _livrosRepositorio.Atualizar(livros);
+                if (ModelState.IsValid)
+                {
+                    _livrosRepositorio.Atualizar(livros);
+                    TempData["MensagemEditSucesso"] = "Cadastro do livro editado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["MensagemEditPreencha"] = "Preencha os campos faltantes!!";
+                    return View(livros);
+                }
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemEditErro"] = $"Ops, não foi possível editar o cadastro do livro. Tente novamente! Detalhe do Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View(livros);
-            }
+
 
         }
     }

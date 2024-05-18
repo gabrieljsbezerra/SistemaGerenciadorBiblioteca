@@ -35,31 +35,65 @@ namespace SistemaGerenciadorBiblioteca.Controllers
         }
         public ActionResult Delete(int id)
         {
-            _alunosRepositorio.Deletar(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _alunosRepositorio.Deletar(id);
+                TempData["MensagemDeleteSucesso"] = "Cadastro do aluno deletado com sucesso!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemDeleteErro"] = $"Ops, não foi possível deletar o cadastro do aluno. Tente novamente! Detalhe do Erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
         //Posters - Responsável por armazenar e gravar as informações
         [HttpPost]
         public ActionResult Adicionar_aluno(AlunosModel alunos)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _alunosRepositorio.Adicionar(alunos);
+                if (ModelState.IsValid)
+                {
+                    _alunosRepositorio.Adicionar(alunos);
+                    TempData["MensagemSucesso"] = "Aluno cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["MensagemPreencha"] = "Preencha os campos faltantes!!";
+                    return View(alunos);
+                }
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não foi possível cadastrar o Aluno. Tente novamente! Detalhe do Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-            else { return View(alunos); }
+
         }
         [HttpPost]
         public ActionResult Editar_aluno(AlunosModel alunos)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _alunosRepositorio.Atualizar(alunos);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _alunosRepositorio.Atualizar(alunos);
+                    TempData["MensagemEditSucesso"] = "Cadastro do aluno editado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["MensagemEditPreencha"] = "Preencha os campos faltantes!!";
+                    return View(alunos);
+                }
             }
-            else
+            catch (Exception erro)
             {
-                return View(alunos);
+                TempData["MensagemEditErro"] = $"Ops, não foi possível editar o cadastro do aluno. Tente novamente! Detalhe do Erro: {erro.Message}";
+                return RedirectToAction("Index");
             }
         }
     }

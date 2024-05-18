@@ -3,6 +3,14 @@
     ViewData["Title"] = "Editar Cadastro Aluno";
 }
 
+@if (TempData["MensagemEditPreencha"] != null)
+{
+    <div class="alert alert-warning" role="alert">
+        <button type="button" class="btn btn-warning btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemEditPreencha"]
+    </div>
+}
+
 <div class="text-center">
 
     <h1 class="display-4">Editar Cadastro Aluno</h1>

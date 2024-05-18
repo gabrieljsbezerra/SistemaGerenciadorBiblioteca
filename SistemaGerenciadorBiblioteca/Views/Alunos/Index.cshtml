@@ -3,6 +3,54 @@
     ViewData["Title"] = "Listagem de Alunos";
 }
 
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+@if (TempData["MensagemEditSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemEditSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemEditErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemEditErro"]
+    </div>
+}
+
+@if (TempData["MensagemDeleteSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemDeleteSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemDeleteErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemDeleteErro"]
+    </div>
+}
+
 <div class="text-center">
     <h1 class="display-4">Lista de Alunos</h1>
     <a class="btn btn-success" role="button" style="float: left" asp-controller="Alunos" asp-action="Adicionar_aluno">Adicionar Aluno</a>
