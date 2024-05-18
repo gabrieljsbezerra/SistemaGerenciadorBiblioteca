@@ -6,3 +6,7 @@
 $('.close-alert').click(function () {
     $('.alert').hide('hide');
 });
+
+$(document).ready(function () {
+    $('#table-advanced').DataTable();
+})
