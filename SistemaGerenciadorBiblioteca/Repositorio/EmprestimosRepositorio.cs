@@ -13,17 +13,17 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
         }
         public EmprestimosModel ListarIdEmprestimo(int id)
         {
-            return _bancoContext.Emprestimos.FirstOrDefault(x => x.Id_emprestimo == id);
+            return _bancoContext.EmprestimosModel.FirstOrDefault(x => x.Id_emprestimo == id);
         }
         //Método que atualiza a view com tudo que está no banco de dados
         public List<EmprestimosModel> BuscarCadastroEmprestimo()
         {
-            return _bancoContext.Emprestimos.ToList();
+            return _bancoContext.EmprestimosModel.ToList();
         }
         //Método de Adicionar criado
         public EmprestimosModel Adicionar(EmprestimosModel emprestimos)
         {
-            _bancoContext.Emprestimos.Add(emprestimos);
+            _bancoContext.EmprestimosModel.Add(emprestimos);
             _bancoContext.SaveChanges();
 
             return emprestimos;
@@ -39,7 +39,7 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
             emprestimoBD.Id_aluno = emprestimos.Id_aluno;
             emprestimoBD.Id_livro = emprestimos.Id_livro;
 
-            _bancoContext.Emprestimos.Update(emprestimoBD);
+            _bancoContext.EmprestimosModel.Update(emprestimoBD);
             _bancoContext.SaveChanges();
 
             return emprestimoBD;
@@ -52,7 +52,7 @@ namespace SistemaGerenciadorBiblioteca.Repositorio
 
             if (emprestimoBD == null) throw new Exception("Erro ao Deletar no Banco de Dados!! Null error.");
 
-            _bancoContext.Emprestimos.Remove(emprestimoBD);
+            _bancoContext.EmprestimosModel.Remove(emprestimoBD);
             _bancoContext.SaveChanges();
             return true;
         }
