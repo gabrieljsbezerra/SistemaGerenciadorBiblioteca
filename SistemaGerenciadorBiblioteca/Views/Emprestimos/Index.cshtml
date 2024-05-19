@@ -1,5 +1,120 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<SistemaGerenciadorBiblioteca.Models.EmprestimosModel>
 @{
+    ViewData["Title"] = "Listagem de Empréstimos";
 }
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+@if (TempData["MensagemEditSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemEditSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemEditErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemEditErro"]
+    </div>
+}
+
+@if (TempData["MensagemDeleteSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemDeleteSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemDeleteErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemDeleteErro"]
+    </div>
+}
+
+<div class="text-center">
+    <a class="btn btn-success" role="button" style="float: left" asp-controller="Emprestimos" asp-action="Adicionar_emprestimo">Adicionar Empréstimo</a>
+    <br />
+    <h1 class="display-1">Lista de Alunos</h1>
+    <br />
+    <table class="table table-striped" id="table-advanced">
+        <thead>
+            <tr>
+                <th scope="col">ID Empréstimo</th>
+                <th scope="col">Livro</th>
+                <th scope="col">Data do Empréstimo</th>
+                <th scope="col">Data Devolução</th>
+                <th scope="col">Dias Restantes</th>
+                <th scope="col">Status</th>
+                <th scope="col">RM</th>
+                <th scope="col">Nome Aluno</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emprestimo in Model)
+            {
+                <tr>
+                    <th scope="row">@emprestimo.Id_emprestimo</th>
+                    <td>@emprestimo.Livro.Titulo</td>
+                    <td>@emprestimo.Data_Emprestimo</td>
+                    <td>@emprestimo.Data_Devolucao</td>
+                    <td>@CalcularDiasRestantes(@emprestimo.Data_Devolucao)</td>
+                    <td>@StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao))</td>
+                    <td>@emprestimo.Aluno.Rm</td>
+                    <td>@emprestimo.Aluno.Nome_Aluno</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <a role="button" class="btn btn-warning" href="Emprestimos/Editar_emprestimo/@emprestimo.Id_aluno">Editar</a>
+                            <a role="button" class="btn btn-danger" href="Emprestimos/Deletar_emprestimo/@emprestimo.Id_aluno">Deletar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@{
+    int CalcularDiasRestantes(DateTime dataDevolucao)
+    {
+        DateTime dataAtual = DateTime.Today;
+        TimeSpan diferenca = dataDevolucao.Subtract(dataAtual);
+        return (int)diferenca.TotalDays;
+    }
+
+    string StatusPrazo(int diferenca)
+    {
+        string prazo = "";
+
+        if (diferenca < 0)
+        {
+            prazo = "Atrasado";
+        }
+        else
+        {
+            prazo = "No Prazo";
+        }
+        return prazo;
+    }
+}
+

@@ -22,5 +22,7 @@ namespace SistemaGerenciadorBiblioteca.Models
         [Required(ErrorMessage = "Digite o Ano de Publicação do Livro")]
         public int Ano { get; set; }
 
+        public ICollection<EmprestimosModel> Emprestimos { get; set; }
+
     }
 }

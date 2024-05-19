@@ -20,6 +20,7 @@ namespace SistemaGerenciadorBiblioteca.Models
         [Required(ErrorMessage = "Digite o E-mail para contato!")]
         [EmailAddress(ErrorMessage ="E-mail informado não é válido!")]
         public string Email { get; set; }
+        public ICollection<EmprestimosModel> Emprestimos { get; set; }
 
     }
 }
