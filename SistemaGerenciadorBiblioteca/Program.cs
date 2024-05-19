@@ -8,10 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("BancoContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BancoContext")));
 builder.Services.AddScoped<ILivrosRepositorio, LivrosRepositorio>();
 builder.Services.AddScoped<IAlunosRepositorio, AlunosRepositorio>();
 builder.Services.AddScoped<IEmprestimosRepositorio, EmprestimosRepositorio>();
+
+// Configure Antiforgery options
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
 
 var app = builder.Build();
 
@@ -28,6 +34,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Ensure authentication middleware is added before authorization middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

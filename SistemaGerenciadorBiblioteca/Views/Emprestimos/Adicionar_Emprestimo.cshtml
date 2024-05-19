@@ -1,0 +1,65 @@
+﻿@model SistemaGerenciadorBiblioteca.Models.EmprestimosModel
+
+@{
+    ViewData["Title"] = "Adicionar Empréstimo";
+}
+
+@if (TempData["MensagemPreencha"] != null)
+{
+    <div class="alert alert-warning" role="alert">
+        <button type="button" class="btn btn-warning btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemPreencha"]
+    </div>
+}
+<h1 class="display-1 text-center">Cadastrar Empréstimo</h1>
+
+
+<div class="row">
+    <div class="mb-3">
+        <form asp-action="Adicionar_Emprestimo">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Id_livro" class="control-label">Selecione um Livro</label>
+                <select asp-for="Id_livro" class="form-control" asp-items="ViewBag.Livros"></select>
+                <span asp-validation-for="Id_livro" class="text-danger"></span>
+                @Html.ValidationMessageFor(x => x.Id_livro)
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Id_aluno" class="control-label">Selecione um Aluno</label>
+                <select asp-for="Id_aluno" class="form-control" asp-items="ViewBag.Alunos"></select>
+                <span asp-validation-for="Id_aluno" class="text-danger"></span>
+                @Html.ValidationMessageFor(x => x.Id_aluno)
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Data_Emprestimo" class="control-label">Selecione a Data de Empréstimo</label>
+                <input asp-for="Data_Emprestimo" class="form-control" />
+                <span asp-validation-for="Data_Emprestimo" class="text-danger"></span>
+                @Html.ValidationMessageFor(x => x.Data_Emprestimo)
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Data_Devolucao" class="control-label">Selecione a Data de Devolução</label>
+                <input asp-for="Data_Devolucao" class="form-control" />
+                <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
+                @Html.ValidationMessageFor(x => x.Data_Devolucao)
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Registrar Empréstimo" class="btn btn-primary" />
+                <a class="btn btn-secondary" role="button" asp-controller="Emprestimos" asp-action="Index">Voltar</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

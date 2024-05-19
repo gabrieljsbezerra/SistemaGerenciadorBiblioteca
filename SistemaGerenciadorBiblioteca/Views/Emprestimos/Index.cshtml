@@ -65,7 +65,6 @@
                 <th scope="col">Data Devolução</th>
                 <th scope="col">Dias Restantes</th>
                 <th scope="col">Status</th>
-                <th scope="col">RM</th>
                 <th scope="col">Nome Aluno</th>
                 <th scope="col">Ações</th>
             </tr>
@@ -80,7 +79,6 @@
                     <td>@emprestimo.Data_Devolucao</td>
                     <td>@CalcularDiasRestantes(@emprestimo.Data_Devolucao)</td>
                     <td>@StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao))</td>
-                    <td>@emprestimo.Aluno.Rm</td>
                     <td>@emprestimo.Aluno.Nome_Aluno</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
