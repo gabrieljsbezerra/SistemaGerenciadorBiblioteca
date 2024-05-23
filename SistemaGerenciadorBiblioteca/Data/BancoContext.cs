@@ -10,9 +10,8 @@ namespace SistemaGerenciadorBiblioteca.Data
         }
 
         public DbSet<LivrosModel> Livros { get; set; }
-
         public DbSet<AlunosModel> Alunos { get; set; }
+        public DbSet<EmprestimosModel> Emprestimos { get; set; }
 
-        public DbSet<EmprestimosModel> EmprestimosModel { get; set; }
     }
 }

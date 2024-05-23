@@ -66,31 +66,27 @@ namespace SistemaGerenciadorBiblioteca.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_emprestimo"), 1L, 1);
 
-                    b.Property<int>("AlunoId_aluno")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Data_Devolucao")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Data_Emprestimo")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_aluno")
+                    b.Property<int?>("Id_aluno")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_livro")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LivroId_livro")
+                    b.Property<int?>("Id_livro")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id_emprestimo");
 
-                    b.HasIndex("AlunoId_aluno");
+                    b.HasIndex("Id_aluno");
 
-                    b.HasIndex("LivroId_livro");
+                    b.HasIndex("Id_livro");
 
-                    b.ToTable("EmprestimosModel");
+                    b.ToTable("Emprestimos");
                 });
 
             modelBuilder.Entity("SistemaGerenciadorBiblioteca.Models.LivrosModel", b =>
@@ -128,30 +124,20 @@ namespace SistemaGerenciadorBiblioteca.Migrations
             modelBuilder.Entity("SistemaGerenciadorBiblioteca.Models.EmprestimosModel", b =>
                 {
                     b.HasOne("SistemaGerenciadorBiblioteca.Models.AlunosModel", "Aluno")
-                        .WithMany("Emprestimos")
-                        .HasForeignKey("AlunoId_aluno")
+                        .WithMany()
+                        .HasForeignKey("Id_aluno")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SistemaGerenciadorBiblioteca.Models.LivrosModel", "Livro")
-                        .WithMany("Emprestimos")
-                        .HasForeignKey("LivroId_livro")
+                        .WithMany()
+                        .HasForeignKey("Id_livro")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Aluno");
 
                     b.Navigation("Livro");
-                });
-
-            modelBuilder.Entity("SistemaGerenciadorBiblioteca.Models.AlunosModel", b =>
-                {
-                    b.Navigation("Emprestimos");
-                });
-
-            modelBuilder.Entity("SistemaGerenciadorBiblioteca.Models.LivrosModel", b =>
-                {
-                    b.Navigation("Emprestimos");
                 });
 #pragma warning restore 612, 618
         }

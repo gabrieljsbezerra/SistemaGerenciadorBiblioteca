@@ -3,56 +3,8 @@
     ViewData["Title"] = "Listagem de Empréstimos";
 }
 
-@if (TempData["MensagemSucesso"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemSucesso"]
-    </div>
-}
-
-@if (TempData["MensagemErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemErro"]
-    </div>
-}
-
-@if (TempData["MensagemEditSucesso"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemEditSucesso"]
-    </div>
-}
-
-@if (TempData["MensagemEditErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemEditErro"]
-    </div>
-}
-
-@if (TempData["MensagemDeleteSucesso"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemDeleteSucesso"]
-    </div>
-}
-
-@if (TempData["MensagemDeleteErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemDeleteErro"]
-    </div>
-}
-
 <div class="text-center">
-    <a class="btn btn-success" role="button" style="float: left" asp-controller="Emprestimos" asp-action="Adicionar_emprestimo">Adicionar Empréstimo</a>
+    <a class="btn btn-success" role="button" style="float: left" asp-controller="Emprestimos" asp-action="Add">Adicionar Empréstimo</a>
     <br />
     <h1 class="display-1">Lista de Empréstimos</h1>
     <br />
@@ -82,8 +34,8 @@
                     <td>@emprestimo.Aluno.Nome_Aluno</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a role="button" class="btn btn-warning" href="Emprestimos/Editar_emprestimo/@emprestimo.Id_aluno">Editar</a>
-                            <a role="button" class="btn btn-danger" href="Emprestimos/Deletar_emprestimo/@emprestimo.Id_aluno">Deletar</a>
+                            <a role="button" class="btn btn-warning" >Editar</a>
+                            <a role="button" class="btn btn-danger" >Deletar</a>
                         </div>
                     </td>
                 </tr>

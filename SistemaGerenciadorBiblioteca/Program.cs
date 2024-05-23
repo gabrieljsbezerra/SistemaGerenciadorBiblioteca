@@ -11,7 +11,6 @@ builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BancoContext")));
 builder.Services.AddScoped<ILivrosRepositorio, LivrosRepositorio>();
 builder.Services.AddScoped<IAlunosRepositorio, AlunosRepositorio>();
-builder.Services.AddScoped<IEmprestimosRepositorio, EmprestimosRepositorio>();
 
 // Configure Antiforgery options
 builder.Services.AddAntiforgery(options =>

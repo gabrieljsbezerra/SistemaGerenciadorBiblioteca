@@ -1,0 +1,53 @@
+﻿@model SistemaGerenciadorBiblioteca.ViewModel.EmprestimosViewModel
+
+@{
+    ViewData["Title"] = "Adicionar Empréstimos";
+}
+
+<div class="text-center">
+    <h1 class="display-1">Adicionar Empréstimo</h1>
+</div>
+
+<form asp-action="Add" method="post">
+    <div class="mb-3">
+        <label for="dataemprestimo" class="form-label">Data do Empréstimo</label>
+        <input asp-for="Data_Emprestimo" class="form-control" />
+        <span asp-validation-for="Data_Emprestimo" class="text-danger"></span>
+        @Html.ValidationMessageFor(x => x.Data_Emprestimo)
+        <div id="descricaodataemp" class="form-text">Digite a Data do Empréstimo</div>
+    </div>
+    <div class="mb-3">
+        <label for="datadevolucao" class="form-label">Data da Devolução</label>
+        <input asp-for="Data_Devolucao" class="form-control" />
+        <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
+        @Html.ValidationMessageFor(x => x.Data_Devolucao)
+        <div id="descricaodatadev" class="form-text">Digite a Data da Devolução</div>
+    </div>
+    <div class="mb-3">
+        <label for="LivroId" class="form-label">Livro</label>
+        <select asp-for="Id_livro" class="form-control">
+            @foreach (var livro in Model.ListaLivros)
+            {
+                <option value="@livro.Id_livro">@livro.Titulo</option>
+            }
+        </select>
+        <span asp-validation-for="Id_livro" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="AlunoId" class="form-label">Aluno</label>
+        <select asp-for="Id_aluno" class="form-control">
+            @foreach (var aluno in Model.ListaAlunos)
+            {
+                <option value="@aluno.Id_aluno">@aluno.Nome_Aluno</option>
+            }
+        </select>
+        <span asp-validation-for="Id_aluno" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
