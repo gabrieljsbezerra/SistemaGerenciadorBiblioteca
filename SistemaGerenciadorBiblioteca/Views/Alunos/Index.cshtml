@@ -73,13 +73,13 @@
             @foreach (var aluno in Model)
             {
                 <tr>
-                    <th scope ="row">@aluno.Id_aluno</th>
-                    <td>@aluno.Rm</td>
+                    <th class="text-center" scope="row">@aluno.Id_aluno</th>
+                    <td class="text-center">@aluno.Rm</td>
                     <td>@aluno.Nome_Aluno</td>
-                    <td>@aluno.Turma</td>
-                    <td>@aluno.Nome_Responsavel</td>
-                    <td>@aluno.Celular</td>
-                    <td>@aluno.Email</td>
+                    <td class="text-center">@aluno.Turma</td>
+                    <td class="text-center">@aluno.Nome_Responsavel</td>
+                    <td class="text-center">@aluno.Celular</td>
+                    <td class="text-center">@aluno.Email</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <a role="button" class="btn btn-warning" href="Alunos/Editar_aluno/@aluno.Id_aluno">Editar</a>
