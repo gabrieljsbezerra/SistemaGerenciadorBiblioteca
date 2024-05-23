@@ -1,0 +1,13 @@
+﻿@model SistemaGerenciadorBiblioteca.Models.EmprestimosModel
+@{
+    ViewData["Title"] = "Confirmar Exclusão";
+}
+
+<h1>Confirmar Exclusão</h1>
+<p>Você tem certeza que deseja excluir o empréstimo?</p>
+
+<form asp-controller="Emprestimos" asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.Id_emprestimo" />
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+    <a asp-controller="Emprestimos" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

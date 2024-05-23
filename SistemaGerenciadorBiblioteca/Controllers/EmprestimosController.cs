@@ -52,6 +52,7 @@ namespace SistemaGerenciadorBiblioteca.Controllers
 
             _context.Emprestimos.Add(emprestimo);
             _context.SaveChanges();
+            TempData["MensagemSucesso"] = "Empréstimo cadastrado com sucesso!";
             return RedirectToAction("Index");
         }
 
@@ -94,12 +95,12 @@ namespace SistemaGerenciadorBiblioteca.Controllers
 
             _context.Emprestimos.Update(emprestimo);
             _context.SaveChanges();
-
+            TempData["MensagemEditSucesso"] = "Empréstimo editado com sucesso!";
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Delete(int id)
+        [HttpGet]
+        public IActionResult ConfirmarDelete(int id)
         {
             var emprestimo = _context.Emprestimos.Find(id);
             if (emprestimo == null)
@@ -107,8 +108,17 @@ namespace SistemaGerenciadorBiblioteca.Controllers
                 return NotFound();
             }
 
+            return View(emprestimo);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var emprestimo = _context.Emprestimos.Find(id);
+
             _context.Emprestimos.Remove(emprestimo);
             _context.SaveChanges();
+            TempData["MensagemDeleteSucesso"] = "Empréstimo deletado com sucesso!";
             return RedirectToAction("Index");
         }
 
