@@ -29,8 +29,8 @@
                     <td>@emprestimo.Livro.Titulo</td>
                     <td>@emprestimo.Data_Emprestimo</td>
                     <td>@emprestimo.Data_Devolucao</td>
-                    <td>@CalcularDiasRestantes(@emprestimo.Data_Devolucao)</td>
-                    <td>@StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao))</td>
+                    <td class=">@(CalcularDiasRestantes(@emprestimo.Data_Devolucao) < 0 ? "text-danger" : "")">@CalcularDiasRestantes(@emprestimo.Data_Devolucao)</td>
+                    <td class="@(StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao)) == "Atrasado" ? "text-danger" : "")"> @StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao))</td>
                     <td>@emprestimo.Aluno.Nome_Aluno</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
