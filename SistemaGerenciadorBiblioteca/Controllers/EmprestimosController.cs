@@ -54,6 +54,64 @@ namespace SistemaGerenciadorBiblioteca.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var emprestimo = _context.Emprestimos.Find(id);
+            if (emprestimo == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EmprestimosViewModel
+            {
+                Id_emprestimo = emprestimo.Id_emprestimo,
+                Data_Emprestimo = emprestimo.Data_Emprestimo,
+                Data_Devolucao = emprestimo.Data_Devolucao,
+                Id_aluno = emprestimo.Id_aluno,
+                Id_livro = emprestimo.Id_livro,
+                ListaAlunos = _context.Alunos.ToList(),
+                ListaLivros = _context.Livros.ToList()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, EmprestimosViewModel model)
+        {
+            var emprestimo = _context.Emprestimos.Find(id);
+            if (emprestimo == null)
+            {
+                return NotFound();
+            }
+
+            emprestimo.Data_Emprestimo = model.Data_Emprestimo;
+            emprestimo.Data_Devolucao = model.Data_Devolucao;
+            emprestimo.Id_aluno = model.Id_aluno;
+            emprestimo.Id_livro = model.Id_livro;
+
+            _context.Emprestimos.Update(emprestimo);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var emprestimo = _context.Emprestimos.Find(id);
+            if (emprestimo == null)
+            {
+                return NotFound();
+            }
+
+            _context.Emprestimos.Remove(emprestimo);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
 

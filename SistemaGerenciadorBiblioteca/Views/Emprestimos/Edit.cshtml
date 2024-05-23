@@ -1,14 +1,14 @@
 ﻿@model SistemaGerenciadorBiblioteca.ViewModel.EmprestimosViewModel
 
 @{
-    ViewData["Title"] = "Adicionar Empréstimos";
+    ViewData["Title"] = "Editar Empréstimos";
 }
 
 <div class="text-center">
-    <h1 class="display-1">Adicionar Empréstimo</h1>
+    <h1 class="display-1">Editar Empréstimo</h1>
 </div>
 
-<form asp-action="Add" method="post">
+<form asp-action="Edit" method="post">
     <div class="mb-3">
         <label for="dataemprestimo" class="form-label">Data do Empréstimo</label>
         <input asp-for="Data_Emprestimo" class="form-control" />
@@ -43,9 +43,9 @@
         </select>
         <span asp-validation-for="Id_aluno" class="text-danger"></span>
     </div>
-    <br/>
+    <br />
     <a class="btn btn-secondary" role="button" asp-controller="Emprestimos" asp-action="Index">Voltar</a>
-    <button type="submit" class="btn btn-primary">Adicionar Empréstimo</button>
+    <button type="submit" class="btn btn-primary">Editar Empréstimo</button>
 </form>
 
 @section Scripts {

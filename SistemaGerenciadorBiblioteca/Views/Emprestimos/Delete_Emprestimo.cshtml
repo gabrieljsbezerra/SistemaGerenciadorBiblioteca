@@ -1,0 +1,12 @@
+﻿@model EmprestimosModel
+@{
+    ViewData["Title"] = "Confirmação - Deletar Empréstimo";
+}
+
+<div class="text-center">
+    <h3>Realmente deseja apagar o empréstimo do Livro: @Model.Livro.Titulo - @Model.Aluno.Nome_Aluno?</h3>
+    <br />
+    <a class="btn btn-secondary" role="button" asp-controller="Emprestimos" asp-action="Index">Cancelar</a>
+    <a class="btn btn-danger" role="button" asp-controller="Emprestimos" asp-action="Delete" asp-route-id="@Model.Id_emprestimo">Confirmar exclusão</a>
+</div>
+
