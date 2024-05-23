@@ -60,12 +60,13 @@
         <thead>
             <tr>
                 <th scope="col">ID Empréstimo</th>
+                <th scope="col">Nome Aluno</th>
                 <th scope="col">Livro</th>
                 <th scope="col">Data do Empréstimo</th>
                 <th scope="col">Data Devolução</th>
                 <th scope="col">Dias Restantes</th>
                 <th scope="col">Status</th>
-                <th scope="col">Nome Aluno</th>
+                
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -74,12 +75,12 @@
             {
                 <tr>
                     <th class="text-center" scope="row">@emprestimo.Id_emprestimo</th>
+                    <td>@emprestimo.Aluno.Nome_Aluno</td>
                     <td>@emprestimo.Livro.Titulo</td>
                     <td class="text-center">@emprestimo.Data_Emprestimo</td>
                     <td class="text-center">@emprestimo.Data_Devolucao</td>
                     <td class="@(StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao)) == "Atrasado" ? "text-danger" : "") text-center">@CalcularDiasRestantes(@emprestimo.Data_Devolucao)</td>
                     <td class="@(StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao)) == "Atrasado" ? "text-danger" : "") text-center"> @StatusPrazo(CalcularDiasRestantes(@emprestimo.Data_Devolucao))</td>
-                    <td>@emprestimo.Aluno.Nome_Aluno</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <a role="button" class="btn btn-warning" href="Emprestimos/Edit/@emprestimo.Id_emprestimo">Editar</a>
